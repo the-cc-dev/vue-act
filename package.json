@@ -1,0 +1,20 @@
+{
+  "author": {
+    "name": "Websanova",
+    "url": "http://websanova.com",
+    "username": "websanova",
+    "email": "rob@websanova.com"
+  },
+  "dependencies": {},
+  "description": "Simple global event utility for Vue.js.",
+  "licenses": "MIT, GPL",
+  "devDependencies": {},
+  "keywords": ["vue", "vue.js", "event", "vuex"],
+  "main": "src/index.js",
+  "name": "@websanova/vue-event",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/websanova/vue-event"
+  },
+  "version": "0.1.1"
+}

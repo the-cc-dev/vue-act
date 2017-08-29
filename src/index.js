@@ -1,27 +1,27 @@
 module.exports = (function () {
 
-    function Event() {
+    function Act() {
         this.data = {};
     }
 
-    Event.prototype.on = function (name, func) {
-        if (this.$event.data[name]) {
-            console.error('Vue Event: The event ' + name + ' already exists!.');
+    Act.prototype.on = function (name, func) {
+        if (this.$act.data[name]) {
+            console.error('Vue Act: The act ' + name + ' already exists!.');
             return;
         }
 
-        this.$event.data[name] = func.bind(this);
+        this.$act.data[name] = func.bind(this);
     };
 
-    Event.prototype.off = function (name) {
+    Act.prototype.off = function (name) {
         if (this.data[name]) {
             delete this.data[name];
         }
     };
 
-    Event.prototype.emit = function (name, data) {
+    Act.prototype.emit = function (name, data) {
         if ( ! this.data[name]) {
-            console.error('Vue Event: The event ' + name + ' does not exist!.');
+            console.error('Vue Act: The act ' + name + ' does not exist!.');
             return;
         }
 
@@ -29,15 +29,15 @@ module.exports = (function () {
     }
 
     return function install(Vue) {
-        var event = new Event,
-            on = event.on;
+        var act = new Act,
+            on = act.on;
 
         Object.defineProperties(Vue.prototype, {
-            $event: {
+            $act: {
                 get: function() {
-                    event.on = on.bind(this);
+                    act.on = on.bind(this);
 
-                    return event;
+                    return act;
                 }
             }
         });

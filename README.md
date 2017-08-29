@@ -1,16 +1,16 @@
-# Vue Store
+# Vue Act
 
-A simple global event handle for Vue.js.
+A simple global event (act) handler for Vue.
 
 
 ## Install
 
 ~~~
-> sudo npm install @websanova/vue-event
+> sudo npm install @websanova/vue-act
 ~~~    
 
 ~~~
-Vue.use(require('@websanova/vue-event'));
+Vue.use(require('@websanova/vue-act'));
 ~~~
 
 
@@ -19,7 +19,7 @@ Vue.use(require('@websanova/vue-event'));
 Usage is straight forward. Note that the `.on()` method will always receive the instance of the component it is called from.
 
 ~~~
-this.$event.on('some:event', function () {});
-this.$event.emit('some:event', {some: 'data'});
-this.$event.off('some:event');
+this.$act.on('some:act', function () {});
+this.$act.emit('some:act', {some: 'data'});
+this.$act.off('some:act');
 ~~~

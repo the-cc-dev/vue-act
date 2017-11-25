@@ -19,7 +19,7 @@ Vue.use(require('@websanova/vue-act'));
 Usage is straight forward. Note that the `.on()` method will always receive the instance of the component it is called from.
 
 ~~~
-this.$act.on('some:act', function () {});
-this.$act.emit('some:act', {some: 'data'});
-this.$act.off('some:act');
+this.$act.on('some.act', function () {});
+this.$act.emit('some.act', {some: 'data'});
+this.$act.off('some.act');
 ~~~

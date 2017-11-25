@@ -32,6 +32,8 @@ module.exports = (function () {
         var act = new Act,
             on = act.on;
 
+        Vue.act = act;
+
         Object.defineProperties(Vue.prototype, {
             $act: {
                 get: function() {

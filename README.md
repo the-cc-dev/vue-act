@@ -13,6 +13,13 @@ A simple global event (act) handler for Vue.
 Vue.use(require('@websanova/vue-act'));
 ~~~
 
+## Options
+
+~~~
+Vue.use(require('@websanova/vue-act'), {
+    logEmits: false // Show info logs in console (default true)
+});
+~~~
 
 ## Usage
 

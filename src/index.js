@@ -1,3 +1,5 @@
+var dot = require('dot-object');
+
 module.exports = (function () {
 
     function Act(options) {
@@ -11,31 +13,52 @@ module.exports = (function () {
     Act.prototype.on = function (name, func) {
         var _act = this.$act || this;
 
-        if (_act.data[name]) {
-            console.error('Vue.act:error The act ' + name + ' already exists!.');
+        if (typeof dot.pick(name, _act.data) === 'function') {
+            console.error('Vue.act.on: The act ' + name + ' already exists!.');
+            
             return;
         }
 
-        _act.data[name] = func.bind(this);
+        dot.str(name, func.bind(this), _act.data);
     };
 
     Act.prototype.off = function (name) {
-        if (this.data[name]) {
-            delete this.data[name];
-        }
+        dot.del(name, this.data);
     };
 
     Act.prototype.emit = function (name, data) {
-        if ( ! this.data[name]) {
-            console.error('Vue.act:error The act ' + name + ' does not exist!.');
+        var i, ii,
+            emits = [],
+            _funcs,
+            _event = dot.pick(name, this.data)
+
+        if ( ! _event) {
+            if (this.options.logEmits) {
+                console.warn('Vue.act.emit: The act ' + name + ' does not exist.');
+            }
+            
             return;
         }
 
-        if (this.options.logEmits) {
-            console.info('Vue.act:event ' + name);
+        if (typeof _event === 'function') {
+            emits.push('_self');
+
+            _event(data);
         }
 
-        this.data[name](data);
+        _funcs = Object.getOwnPropertyNames(_event);
+
+        for (i = 0, ii = _funcs.length; i < ii; i++) {
+            if (typeof _event[_funcs[i]] === 'function') {
+                emits.push(_funcs[i]);
+
+                _event[_funcs[i]](data);
+            }
+        }
+
+        if (this.options.logEmits) {
+            console.info('Vue.act.emit: ' + name + '.[' + emits.join(', ') + ']');
+        }
     }
 
     return function install(Vue, options) {

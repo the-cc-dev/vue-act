@@ -1,20 +1,29 @@
 {
+  "version": "0.4.3", 
+  
+  "name": "@websanova/vue-act",
+  
+  "description": "Simple global event utility for Vue.js.",
+
   "author": {
     "name": "Websanova",
     "url": "http://websanova.com",
     "username": "websanova",
     "email": "rob@websanova.com"
   },
-  "dependencies": {},
-  "description": "Simple global event utility for Vue.js.",
-  "licenses": "MIT, GPL",
-  "devDependencies": {},
-  "keywords": ["vue", "vue.js", "event", "action", "act", "vuex"],
-  "main": "src/index.js",
-  "name": "@websanova/vue-act",
+  
   "repository": {
     "type": "git",
     "url": "https://github.com/websanova/vue-act"
   },
-  "version": "0.3.2"
+  
+  "licenses": "MIT, GPL",
+
+  "keywords": ["vue", "vue.js", "event", "action", "act", "vuex"],
+  
+  "main": "src/index.js",
+  
+  "dependencies": {
+    "dot-object": "1.7.0"
+  }
 }

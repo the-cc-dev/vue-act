@@ -37,7 +37,7 @@ Therefore I just went with what will hopefully be an unused namespace in `$act`.
 
 Since the events are stored in a global object within the plugin they can be created and called from anywhere.
 
-> NOTE: It's generally good practice to destroy an event in the same component it is created to avoid any collisions and errors.
+> **NOTE: It's generally good practice to destroy an event within the same component to avoid any collisions and errors.**
 
 ~~~javascript
  export default {

@@ -37,7 +37,7 @@ Therefore I just went with what will hopefully be an unused namespace in `$act`.
 
 Since the events are stored in a global object within the plugin they can be created and called from anywhere.
 
-NOTE: It's generally good practice to destroy an event in the same component it is created to avoid any collisions and errors.
+**NOTE:** It's generally good practice to destroy an event in the same component it is created to avoid any collisions and errors.
 
 ~~~javascript
  export default {
@@ -75,7 +75,7 @@ NOTE: It's generally good practice to destroy an event in the same component it 
 
 As long as the component is mounted we can then emit our events from anywhere we like.
 
-NOTE: When emitting an event you can pass some data into it.
+**NOTE:** When emitting an event you can pass some data into it.
 
 ~~~javascript
 this.$act.emit('some.act.one', {
@@ -85,7 +85,7 @@ this.$act.emit('some.act.one', {
 
 How the events are structured and at what level will depend on the application. But typically it's best to keep them as localized as possible and always `on` / `off` the events to avoid headaches.
 
-NOTE: Along with creating and destroying events it's also a good idea to come up with a naming scheme to avoid collisions just in case.
+**NOTE:** Along with creating and destroying events it's also a good idea to come up with a naming scheme to avoid collisions just in case.
 
 ~~~javascript
 
@@ -141,7 +141,7 @@ Vue.use(require('@websanova/vue-act'), {
 
 Used to create an event.
 
-NOTE: The function will receive the local `this` context.
+**NOTE:** The function will receive the local `this` context.
 
 ~~~javascript
 this.$act.on('some.event', function () {
@@ -153,7 +153,7 @@ this.$act.on('some.event', function () {
 
 Used to destroy the event.
 
-NOTE: It's generally a good idea to create and destroy the event within the same component (check usage for more details).
+**NOTE:** It's generally a good idea to create and destroy the event within the same component (check usage for more details).
 
 ~~~javascript
 this.$act.off('some.event');

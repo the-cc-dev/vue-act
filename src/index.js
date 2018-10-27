@@ -46,13 +46,15 @@ module.exports = (function () {
             _event(data);
         }
 
-        _funcs = Object.getOwnPropertyNames(_event);
+        if (typeof _event === 'object') {
+            _funcs = Object.getOwnPropertyNames(_event);
 
-        for (i = 0, ii = _funcs.length; i < ii; i++) {
-            if (typeof _event[_funcs[i]] === 'function') {
-                emits.push(_funcs[i]);
+            for (i = 0, ii = _funcs.length; i < ii; i++) {
+                if (typeof _event[_funcs[i]] === 'function') {
+                    emits.push(_funcs[i]);
 
-                _event[_funcs[i]](data);
+                    _event[_funcs[i]](data);
+                }
             }
         }
 
